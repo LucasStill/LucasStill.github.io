@@ -36,16 +36,18 @@
 
         </defs>
 
-        <circle id="circle1" onclick="state1()" cx="50%" cy="50%" r="45" stroke="#000" fill="url(#image)" stroke-width="3" visibility="visible"/>
+        <circle id="circle1" cx="50%" cy="50%" r="45" stroke="#000" fill="url(#image)" stroke-width="3" visibility="visible"/>
 
         <defs>
             <clipPath id="circleView">
-                <circle cx="250" cy="125" r="125" fill="#FFFFFF" />
+                <circle id="orb2" onclick="state1()" cx="250" cy="125" r="125" fill="#FFFFFF">
+                    <animate id="OpenOrb2" begin="indefinite" attributeName="cx" from="250" to="500" dur="1s" fill="freeze"></animate>
+                </circle>
             </clipPath>
         </defs>
-        <image width="500" height="250" xlink:href="https://i.pinimg.com/originals/ff/ea/83/ffea83e9bdc39afafebd459dfde07b01.gif" clip-path="url(#circleView)" />
-
-
+        <image width="500" onclick="state1()" height="250" xlink:href="https://i.pinimg.com/originals/ff/ea/83/ffea83e9bdc39afafebd459dfde07b01.gif" clip-path="url(#circleView)">
+            <animate id="OpenOrb3" begin="indefinite" attributeName="width" from="500" to="1000" dur="1s" fill="freeze"></animate>
+        </image>
 
 
 
@@ -56,7 +58,9 @@
 
     <script>
         function state1(){
-            document.getElementById('circle1').style.visibility = 'hidden';
+            console.log('aye');
+            document.getElementById('OpenOrb2').beginElement();
+            document.getElementById('OpenOrb3').beginElement();
         }
     </script>
 
