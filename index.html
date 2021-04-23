@@ -41,13 +41,21 @@
         <defs>
             <clipPath id="circleView">
                 <circle id="orb2" onclick="state1()" cx="13.8%" cy="125" r="5%" fill="#FFFFFF">
-                    <animate id="OpenOrb2" begin="indefinite" attributeName="cx" from="13.8%" to="55.5%" dur="1s" fill="freeze"></animate>
+                    <animate id="OpenOrb2" begin="indefinite" attributeName="cx" from="13.8%" to="50%" dur="1s" fill="freeze"></animate>
+                    <animate id="OpenOrb4" begin="indefinite" attributeName="r" from="5%" to="10%" dur="7s" fill="freeze"></animate>
+                    <animate id="CloseOrb2" begin="indefinite" attributeName="cx" from="50%" to="13.8%" dur="1s" fill="freeze"></animate>
+                    <animate id="CloseOrb4" begin="indefinite" attributeName="r" from="10%" to="5%" dur="7s" fill="freeze"></animate>
                 </circle>
             </clipPath>
         </defs>
         <image width="27.7%" onclick="state1()" height="12.5%" xlink:href="https://i.pinimg.com/originals/ff/ea/83/ffea83e9bdc39afafebd459dfde07b01.gif" clip-path="url(#circleView)">
-            <animate id="OpenOrb3" begin="indefinite" attributeName="width" from="27.7%" to="111.38%" dur="1s" fill="freeze"></animate>
+            <animate id="OpenOrb3" begin="indefinite" attributeName="width" from="27.7%" to="100%" dur="1s" fill="freeze"></animate>
+            <animate id="CloseOrb3" begin="indefinite" attributeName="width" from="100%" to="27.7%" dur="1s" fill="freeze"></animate>
         </image>
+
+        <polygon points="50%,15% 20%,80% 80%,80%" fill="black">
+
+        </polygon>
 
 
 
@@ -61,6 +69,7 @@
             console.log('aye');
             document.getElementById('OpenOrb2').beginElement();
             document.getElementById('OpenOrb3').beginElement();
+            document.getElementById('OpenOrb4').beginElement();
         }
     </script>
 
