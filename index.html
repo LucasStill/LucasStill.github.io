@@ -36,12 +36,22 @@
 
         </defs>
 
+        <defs>
+            <pattern id="pattern1" height="100%" width="100%" patternContentUnits="objectBoundingBox">
+                <image height="1" width="1" preserveAspectRatio="none" xlink:href="https://i.pinimg.com/originals/04/f8/de/04f8dee8e0bc495f203091dc87416282.gif" />
+            </pattern>
+        </defs>
+
         <circle id="circle1" cx="50%" cy="50%" r="45" stroke="#000" fill="url(#image)" stroke-width="3" visibility="visible"/>
 
-        <polygon id="pyramid1" points="900,15 900,15 900,15" fill="black" >
+
+
+        <polygon id="pyramid1" points="900,15 900,15 900,15" fill="url(#pattern1)" >
             <animate id="OpenPyramid1" begin="indefinite" attributeName="points" from="900,15 900,15 900,15" to="900,15 100,1200 1700,1200" dur="7s" fill="freeze"></animate>
-            <animate id="ClosePyramid1" begin="indefinite" attributeName="points" from="900,15 100,1200 1700,1200" to="900,15 900,15 900,15" dur="7s" fill="freeze"></animate>
+            <animate id="ClosePyramid1" begin="indefinite" attributeName="points" from="900,15 100,1200 1700,1200" to="900,15 900,15 900,15" dur="0.3s" fill="freeze"></animate>
         </polygon>
+
+
 
 
 
