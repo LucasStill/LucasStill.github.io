@@ -69,23 +69,63 @@
 
         </defs>
 
-
-
-        <circle id="circle1" cx="50%" cy="50%" r="45" fill="url(#pattern2)" visibility="visible"/>
-        <circle id="circle2" cx="32%" cy="45%" r="75" fill="url(#pattern3)" visibility="visible"/>
-        <circle id="circle3" cx="19%" cy="27%" r="95" fill="url(#pattern4)" visibility="visible"/>
-        <circle id="circle4" cx="68%" cy="45%" r="75" fill="url(#pattern5)" visibility="visible"/>
-        <circle id="circle5" cx="81%" cy="63%" r="95" fill="url(#pattern6)" visibility="visible"/>
-        <circle id="circle6" cx="81%" cy="27%" r="95" fill="url(#pattern7)" visibility="visible"/>
-        <circle id="circle7" cx="87.2%" cy="125" r="5%" fill="url(#pattern8)" visibility="visible"/>
-        <circle id="circle8" cx="19%" cy="63%" r="95" fill="url(#pattern9)" visibility="visible"/>
+        <ellipse id="ellipse1" cx="50%" cy="50%" rx="0%" ry="0%" fill="black">
+            <animate id="OpenEllipse1X" begin="indefinite" attributeName="rx" from="0%" to="30%" dur="1s" fill="freeze"></animate>
+            <animate id="CloseEllipse1X" begin="indefinite" attributeName="rx" from="30%" to="0%" dur="0.95s" fill="freeze"></animate>
+            <animate id="OpenEllipse1Y" begin="indefinite" attributeName="ry" from="0%" to="50%" dur="1s" fill="freeze"></animate>
+            <animate id="CloseEllipse1Y" begin="indefinite" attributeName="ry" from="50%" to="0%" dur="0.95s" fill="freeze"></animate>
+        </ellipse>
 
 
 
-        <polygon id="pyramid1" points="900,15 900,15 900,15" fill="url(#pattern1)" >
+
+        <circle id="circle1" onclick="enter_state2()" cx="50%" cy="50%" r="45" fill="url(#pattern2)" visibility="visible">
+            <animate id="OpenCircle1X" begin="indefinite" attributeName="cx" from="50%" to="21%" dur="1s" fill="freeze"></animate>
+            <animate id="CloseCircle1X" begin="indefinite" attributeName="cx" from="21%" to="50%" dur="1s" fill="freeze"></animate>
+            <animate id="OpenCircle1Y" begin="indefinite" attributeName="cy" from="50%" to="40%" dur="1s" fill="freeze"></animate>
+            <animate id="CloseCircle1Y" begin="indefinite" attributeName="cy" from="40%" to="50%" dur="1s" fill="freeze"></animate>
+            <animate id="OpenCircle1R" begin="indefinite" attributeName="r" from="45" to="90" dur="1s" fill="freeze"></animate>
+            <animate id="CloseCircle1R" begin="indefinite" attributeName="r" from="90" to="45" dur="1s" fill="freeze"></animate>
+            <animate id="GetAwayCircle1" begin="indefinite" attributeName="cy" from="50%" to="200%" dur="1s" fill="freeze"></animate>
+            <animate id="GetBackCircle1" begin="indefinite" attributeName="cy" from="200%" to="50%" dur="1s" fill="freeze"></animate>
+        </circle>
+        <circle id="circle2" cx="32%" cy="45%" r="75" fill="url(#pattern3)" visibility="visible">
+            <animate id="GetAwayCircle2" begin="indefinite" attributeName="cy" from="45%" to="200%" dur="1s" fill="freeze"></animate>
+            <animate id="GetBackCircle2" begin="indefinite" attributeName="cy" from="200%" to="45%" dur="1s" fill="freeze"></animate>
+        </circle>
+        <circle id="circle3" cx="19%" cy="27%" r="95" fill="url(#pattern4)" visibility="visible">
+            <animate id="GetAwayCircle3" begin="indefinite" attributeName="cy" from="27%" to="200%" dur="1s" fill="freeze"></animate>
+            <animate id="GetBackCircle3" begin="indefinite" attributeName="cy" from="200%" to="27%" dur="1s" fill="freeze"></animate>
+        </circle>
+        <circle id="circle4" cx="68%" cy="45%" r="75" fill="url(#pattern5)" visibility="visible">
+            <animate id="GetAwayCircle4" begin="indefinite" attributeName="cy" from="45%" to="200%" dur="1s" fill="freeze"></animate>
+            <animate id="GetBackCircle4" begin="indefinite" attributeName="cy" from="200%" to="45%" dur="1s" fill="freeze"></animate>
+        </circle>
+        <circle id="circle5" cx="81%" cy="63%" r="95" fill="url(#pattern6)" visibility="visible">
+            <animate id="GetAwayCircle5" begin="indefinite" attributeName="cy" from="63%" to="200%" dur="1s" fill="freeze"></animate>
+            <animate id="GetBackCircle5" begin="indefinite" attributeName="cy" from="200%" to="63%" dur="1s" fill="freeze"></animate>
+        </circle>
+        <circle id="circle6" cx="81%" cy="27%" r="95" fill="url(#pattern7)" visibility="visible">
+            <animate id="GetAwayCircle6" begin="indefinite" attributeName="cy" from="27%" to="200%" dur="1s" fill="freeze"></animate>
+            <animate id="GetBackCircle6" begin="indefinite" attributeName="cy" from="200%" to="27%" dur="1s" fill="freeze"></animate>
+        </circle>
+        <circle id="circle7" cx="87.2%" cy="125" r="5%" fill="url(#pattern8)" visibility="visible">
+            <animate id="GetAwayCircle7" begin="indefinite" attributeName="cy" from="125" to="3000" dur="1s" fill="freeze"></animate>
+            <animate id="GetBackCircle7" begin="indefinite" attributeName="cy" from="3000" to="125" dur="1s" fill="freeze"></animate>
+        </circle>
+        <circle id="circle8" cx="19%" cy="63%" r="95" fill="url(#pattern9)" visibility="visible">
+            <animate id="GetAwayCircle8" begin="indefinite" attributeName="cy" from="63%" to="200%" dur="1s" fill="freeze"></animate>
+            <animate id="GetBackCircle8" begin="indefinite" attributeName="cy" from="200%" to="63%" dur="1s" fill="freeze"></animate>
+        </circle>
+
+
+
+        <polygon id="pyramid1" points="900,15 900,15 900,15" fill="url(#pattern1)" visibility="visible" >
             <animate id="OpenPyramid1" begin="indefinite" attributeName="points" from="900,15 900,15 900,15" to="900,15 100,1200 1700,1200" dur="7s" fill="freeze"></animate>
             <animate id="ClosePyramid1" begin="indefinite" attributeName="points" from="900,15 100,1200 1700,1200" to="900,15 900,15 900,15" dur="0.3s" fill="freeze"></animate>
         </polygon>
+
+
 
 
 
@@ -118,6 +158,7 @@
     <script>
 
         var state1 = false;
+        var state2 = false;
 
         function enter_state1(){
             console.log('aye');
@@ -126,13 +167,67 @@
                 document.getElementById('OpenOrb3').beginElement();
                 document.getElementById('OpenOrb4').beginElement();
                 document.getElementById('OpenPyramid1').beginElement();
+
+                document.getElementById('GetAwayCircle1').beginElement();
+                document.getElementById('GetAwayCircle2').beginElement();
+                document.getElementById('GetAwayCircle3').beginElement();
+                document.getElementById('GetAwayCircle4').beginElement();
+                document.getElementById('GetAwayCircle5').beginElement();
+                document.getElementById('GetAwayCircle6').beginElement();
+                document.getElementById('GetAwayCircle7').beginElement();
+                document.getElementById('GetAwayCircle8').beginElement();
                 state1 = true;
             } else {
                 document.getElementById('CloseOrb2').beginElement();
                 document.getElementById('CloseOrb3').beginElement();
                 document.getElementById('CloseOrb4').beginElement();
                 document.getElementById('ClosePyramid1').beginElement();
+
+                document.getElementById('GetBackCircle1').beginElement();
+                document.getElementById('GetBackCircle2').beginElement();
+                document.getElementById('GetBackCircle3').beginElement();
+                document.getElementById('GetBackCircle4').beginElement();
+                document.getElementById('GetBackCircle5').beginElement();
+                document.getElementById('GetBackCircle6').beginElement();
+                document.getElementById('GetBackCircle7').beginElement();
+                document.getElementById('GetBackCircle8').beginElement();
                 state1 = false;
+            }
+        }
+        function enter_state2(){
+            console.log('state2');
+            if(state2 == false){
+                document.getElementById('orb2').style.visibility = 'hidden';
+                document.getElementById('OpenCircle1X').beginElement();
+                document.getElementById('OpenCircle1Y').beginElement();
+                document.getElementById('OpenCircle1R').beginElement();
+                document.getElementById('OpenEllipse1X').beginElement();
+                document.getElementById('OpenEllipse1Y').beginElement();
+
+                document.getElementById('GetAwayCircle2').beginElement();
+                document.getElementById('GetAwayCircle3').beginElement();
+                document.getElementById('GetAwayCircle4').beginElement();
+                document.getElementById('GetAwayCircle5').beginElement();
+                document.getElementById('GetAwayCircle6').beginElement();
+                document.getElementById('GetAwayCircle7').beginElement();
+                document.getElementById('GetAwayCircle8').beginElement();
+                state2 = true;
+            } else {
+                document.getElementById('orb2').style.visibility = 'visible';
+                document.getElementById('CloseCircle1X').beginElement();
+                document.getElementById('CloseCircle1Y').beginElement();
+                document.getElementById('CloseCircle1R').beginElement();
+                document.getElementById('CloseEllipse1X').beginElement();
+                document.getElementById('CloseEllipse1Y').beginElement();
+
+                document.getElementById('GetBackCircle2').beginElement();
+                document.getElementById('GetBackCircle3').beginElement();
+                document.getElementById('GetBackCircle4').beginElement();
+                document.getElementById('GetBackCircle5').beginElement();
+                document.getElementById('GetBackCircle6').beginElement();
+                document.getElementById('GetBackCircle7').beginElement();
+                document.getElementById('GetBackCircle8').beginElement();
+                state2 = false;
             }
         }
     </script>
