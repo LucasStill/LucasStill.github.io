@@ -4,6 +4,225 @@
 
 
 <head>
+
+    <title>Luxandropolis</title>
+    <script type="module" src="./svgLib/svg.js">
+        SVG.on(document, 'DOMContentLoaded', function() {
+          var draw = SVG().addTo('body')
+        })
+
+        // define document width and height
+var width = 450, height = 300
+
+// create SVG document and set its size
+var draw = SVG('pong').size(width, height)
+draw.viewbox(0,0,450,300)
+
+
+// draw background
+var background = draw.rect(width, height).fill('#dde3e1')
+
+// draw line
+var line = draw.line(width/2, 0, width/2, height)
+line.stroke({ width: 5, color: '#fff', dasharray: '5,5' })
+
+
+// define paddle width and height
+var paddleWidth = 15, paddleHeight = 80
+
+// create and position left paddle
+var paddleLeft = draw.rect(paddleWidth, paddleHeight)
+paddleLeft.x(0).cy(height/2).fill('#00ff99')
+
+// create and position right paddle
+var paddleRight = paddleLeft.clone()
+paddleRight.x(width-paddleWidth).fill('#ff0066')
+
+
+// define ball size
+var ballSize = 10
+
+// create ball
+var ball = draw.circle(ballSize)
+ball.center(width/2, height/2).fill('#7f7f7f')
+
+
+// define inital player score
+var playerLeft = playerRight = 0
+
+// create text for the score, set font properties
+var scoreLeft = draw.text(playerLeft+'').font({
+  size: 32,
+  family: 'Menlo, sans-serif',
+  anchor: 'end',
+  fill: '#fff'
+}).move(width/2-10, 10)
+
+// cloning rocks!
+var scoreRight = scoreLeft.clone()
+  .text(playerRight+'')
+  .font('anchor', 'start')
+  .x(width/2+10)
+
+
+// random velocity for the ball at start
+var vx = 0, vy = 0
+
+// AI difficulty
+var difficulty = 2
+
+// update is called on every animation step
+function update(dt) {
+  // move the ball by its velocity
+  ball.dmove(vx*dt, vy*dt)
+
+  // get position of ball
+  var cx = ball.cx()
+    , cy = ball.cy()
+
+  // get position of ball and paddle
+  var paddleLeftCy = paddleLeft.cy()
+
+  // move the left paddle in the direction of the ball
+  var dy = Math.min(difficulty, Math.abs(cy - paddleLeftCy))
+  paddleLeftCy += cy > paddleLeftCy ? dy : -dy
+
+  // constraint the move to the canvas area
+  paddleLeft.cy(Math.max(paddleHeight/2, Math.min(height-paddleHeight/2, paddleLeftCy)))
+
+  // check if we hit top/bottom borders
+  if ((vy < 0 && cy <= 0) || (vy > 0 && cy >= height)) {
+    vy = -vy
+  }
+
+  var paddleLeftY = paddleLeft.y()
+    , paddleRightY = paddleRight.y()
+
+  // check if we hit the paddle
+  if((vx < 0 && cx <= paddleWidth && cy > paddleLeftY && cy < paddleLeftY + paddleHeight) ||
+     (vx > 0 && cx >= width - paddleWidth && cy > paddleRightY && cy < paddleRightY + paddleHeight)) {
+    // depending on where the ball hit we adjust y velocity
+    // for more realistic control we would need a bit more math here
+    // just keep it simple
+    vy = (cy - ((vx < 0 ? paddleLeftY : paddleRightY) + paddleHeight/2)) * 7 // magic factor
+
+    // make the ball faster on hit
+    vx = -vx * 1.05
+  } else
+
+  // check if we hit left/right borders
+  if ((vx < 0 && cx <= 0) || (vx > 0 && cx >= width)) {
+    // when x-velocity is negative, it's a point for player 2, otherwise player 1
+    if(vx < 0) { ++playerRight }
+    else { ++playerLeft }
+
+    reset()
+
+    scoreLeft.text(playerLeft+'')
+    scoreRight.text(playerRight+'')
+  }
+
+
+  // move player paddle
+  var playerPaddleY = paddleRight.y()
+
+  if (playerPaddleY <= 0 && paddleDirection == -1) {
+    paddleRight.cy(paddleHeight/2)
+  } else if (playerPaddleY >= height-paddleHeight && paddleDirection == 1) {
+    paddleRight.y(height-paddleHeight)
+  } else {
+    paddleRight.dy(paddleDirection*paddleSpeed)
+  }
+
+
+  // update ball color based on position
+  ball.fill(ballColor.at(1/width*ball.x()))
+
+}
+
+
+var lastTime, animFrame
+
+function callback(ms) {
+  // we get passed a timestamp in milliseconds
+  // we use it to determine how much time has passed since the last call
+  if (lastTime) {
+    update((ms-lastTime)/1000) // call update and pass delta time in seconds
+  }
+
+  lastTime = ms
+  animFrame = requestAnimationFrame(callback)
+}
+
+
+callback()
+
+
+var paddleDirection = 0
+  , paddleSpeed = 5
+
+SVG.on(document, 'keydown', function(e) {
+  paddleDirection = e.keyCode == 40 ? 1 : e.keyCode == 38 ? -1 : 0
+  e.preventDefault()
+})
+
+SVG.on(document, 'keyup', function(e) {
+  paddleDirection = 0
+  e.preventDefault()
+})
+
+draw.on('click', function() {
+  if(vx === 0 && vy === 0) {
+    vx = Math.random() * 500 - 150
+    vy = Math.random() * 500 - 150
+  }
+})
+
+function reset() {
+  // visualize boom
+  boom()
+
+  // reset speed values
+  vx = 0
+  vy = 0
+
+  // position the ball back in the middle
+  ball.animate(100).center(width/2, height/2)
+
+  // reset the position of the paddles
+  paddleLeft.animate(100).cy(height/2)
+  paddleRight.animate(100).cy(height/2)
+}
+
+
+// ball color update
+var ballColor = new SVG.Color('#ff0066')
+ballColor.morph('#00ff99')
+
+
+// show visual explosion
+function boom() {
+  // detect winning player
+  var paddle = ball.cx() > width/2 ? paddleLeft : paddleRight
+
+  // create the gradient
+  var gradient = draw.gradient('radial', function(stop) {
+    stop.at(0, paddle.attr('fill'), 1)
+    stop.at(1, paddle.attr('fill'), 0)
+  })
+
+  // create circle to carry the gradient
+  var blast = draw.circle(300)
+  blast.center(ball.cx(), ball.cy()).fill(gradient)
+
+  // animate to invisibility
+  blast.animate(1000, '>').opacity(0).after(function() {
+    blast.remove()
+  })
+}
+    </script>
+
+
     <style>
         @font-face {
             font-family: "Civitype";
@@ -26,210 +245,11 @@
 
 
 <body>
-    <h1 style="color:white; font-family:Civitype; font-size:70;">Lucas-Andrei Thil</h1>
-
-    <svg width="100%" height="100%" viewBox="0 0 1800 2000">
-        <defs>
-            <pattern id="image" x="0" y="0" patternUnits="userSpaceOnUse" height="1" width="1">
-                <image id="orb1" href="https://i.pinimg.com/originals/ff/ea/83/ffea83e9bdc39afafebd459dfde07b01.gif" width="20" height="20"/>
-            </pattern>
-
-        </defs>
-
-        <defs>
-            <pattern id="pattern1" height="100%" width="100%" patternContentUnits="objectBoundingBox">
-                <image height="1" width="1" preserveAspectRatio="none" xlink:href="https://i.pinimg.com/originals/29/2e/db/292edbb8781d9d60a082a534022098dc.gif" />
-            </pattern>
-            <pattern id="pattern2" height="100%" width="100%" patternContentUnits="objectBoundingBox">
-                <image height="1" width="1" preserveAspectRatio="none" xlink:href="https://i.pinimg.com/originals/ec/29/8a/ec298a83054402f2d96e9e063715846c.gif" />
-            </pattern>
-            <pattern id="pattern3" height="100%" width="100%" patternContentUnits="objectBoundingBox">
-                <image height="1" width="1" preserveAspectRatio="none" xlink:href="https://i.pinimg.com/originals/a1/77/df/a177dfc84703c31afa0d501ccf43fe4f.gif" />
-            </pattern>
-            <pattern id="pattern4" height="100%" width="100%" patternContentUnits="objectBoundingBox">
-                <image height="1" width="1" preserveAspectRatio="none" xlink:href="https://i.pinimg.com/originals/43/e6/dc/43e6dc00e1c74610627683db109ebbcb.gif" />
-            </pattern>
-            <pattern id="pattern5" height="100%" width="100%" patternContentUnits="objectBoundingBox">
-                <image height="1" width="1" preserveAspectRatio="none" xlink:href="https://i.pinimg.com/originals/ff/65/e4/ff65e4d69d3e68862514b41e8dad551d.gif" />
-            </pattern>
-            <pattern id="pattern6" height="100%" width="100%" patternContentUnits="objectBoundingBox">
-                <image height="1" width="1" preserveAspectRatio="none" xlink:href="https://i.pinimg.com/originals/dd/b3/4d/ddb34de7e300f6597d48beb0dfbc33e3.gif" />
-            </pattern>
-            <pattern id="pattern7" height="100%" width="100%" patternContentUnits="objectBoundingBox">
-                <image height="1" width="1" preserveAspectRatio="none" xlink:href="https://i.pinimg.com/originals/62/48/12/6248129a675fc8df2f0787a307cf53b0.gif" />
-            </pattern>
-            <pattern id="pattern8" height="100%" width="100%" patternContentUnits="objectBoundingBox">
-                <image height="1" width="1" preserveAspectRatio="none" xlink:href="https://i.pinimg.com/originals/3d/b1/36/3db1364fe8780eee5b50e5dd4a16165d.gif" />
-            </pattern>
-            <pattern id="pattern9" height="100%" width="100%" patternContentUnits="objectBoundingBox">
-                <image height="1" width="1" preserveAspectRatio="none" xlink:href="https://i.pinimg.com/originals/20/e7/b2/20e7b2c4a5fe5c3d836bba1f14f7a74b.gif" />
-            </pattern>
-
-
-
-        </defs>
-
-        <ellipse id="ellipse1" cx="50%" cy="50%" rx="0%" ry="0%" fill="black">
-            <animate id="OpenEllipse1X" begin="indefinite" attributeName="rx" from="0%" to="30%" dur="1s" fill="freeze"></animate>
-            <animate id="CloseEllipse1X" begin="indefinite" attributeName="rx" from="30%" to="0%" dur="0.95s" fill="freeze"></animate>
-            <animate id="OpenEllipse1Y" begin="indefinite" attributeName="ry" from="0%" to="50%" dur="1s" fill="freeze"></animate>
-            <animate id="CloseEllipse1Y" begin="indefinite" attributeName="ry" from="50%" to="0%" dur="0.95s" fill="freeze"></animate>
-        </ellipse>
-
-
-
-
-        <circle id="circle1" onclick="enter_state2()" cx="50%" cy="50%" r="45" fill="url(#pattern2)" visibility="visible">
-            <animate id="OpenCircle1X" begin="indefinite" attributeName="cx" from="50%" to="21%" dur="1s" fill="freeze"></animate>
-            <animate id="CloseCircle1X" begin="indefinite" attributeName="cx" from="21%" to="50%" dur="1s" fill="freeze"></animate>
-            <animate id="OpenCircle1Y" begin="indefinite" attributeName="cy" from="50%" to="40%" dur="1s" fill="freeze"></animate>
-            <animate id="CloseCircle1Y" begin="indefinite" attributeName="cy" from="40%" to="50%" dur="1s" fill="freeze"></animate>
-            <animate id="OpenCircle1R" begin="indefinite" attributeName="r" from="45" to="90" dur="1s" fill="freeze"></animate>
-            <animate id="CloseCircle1R" begin="indefinite" attributeName="r" from="90" to="45" dur="1s" fill="freeze"></animate>
-            <animate id="GetAwayCircle1" begin="indefinite" attributeName="cy" from="50%" to="200%" dur="1s" fill="freeze"></animate>
-            <animate id="GetBackCircle1" begin="indefinite" attributeName="cy" from="200%" to="50%" dur="1s" fill="freeze"></animate>
-        </circle>
-        <circle id="circle2" cx="32%" cy="45%" r="75" fill="url(#pattern3)" visibility="visible">
-            <animate id="GetAwayCircle2" begin="indefinite" attributeName="cy" from="45%" to="200%" dur="1s" fill="freeze"></animate>
-            <animate id="GetBackCircle2" begin="indefinite" attributeName="cy" from="200%" to="45%" dur="1s" fill="freeze"></animate>
-        </circle>
-        <circle id="circle3" cx="19%" cy="27%" r="95" fill="url(#pattern4)" visibility="visible">
-            <animate id="GetAwayCircle3" begin="indefinite" attributeName="cy" from="27%" to="200%" dur="1s" fill="freeze"></animate>
-            <animate id="GetBackCircle3" begin="indefinite" attributeName="cy" from="200%" to="27%" dur="1s" fill="freeze"></animate>
-        </circle>
-        <circle id="circle4" cx="68%" cy="45%" r="75" fill="url(#pattern5)" visibility="visible">
-            <animate id="GetAwayCircle4" begin="indefinite" attributeName="cy" from="45%" to="200%" dur="1s" fill="freeze"></animate>
-            <animate id="GetBackCircle4" begin="indefinite" attributeName="cy" from="200%" to="45%" dur="1s" fill="freeze"></animate>
-        </circle>
-        <circle id="circle5" cx="81%" cy="63%" r="95" fill="url(#pattern6)" visibility="visible">
-            <animate id="GetAwayCircle5" begin="indefinite" attributeName="cy" from="63%" to="200%" dur="1s" fill="freeze"></animate>
-            <animate id="GetBackCircle5" begin="indefinite" attributeName="cy" from="200%" to="63%" dur="1s" fill="freeze"></animate>
-        </circle>
-        <circle id="circle6" cx="81%" cy="27%" r="95" fill="url(#pattern7)" visibility="visible">
-            <animate id="GetAwayCircle6" begin="indefinite" attributeName="cy" from="27%" to="200%" dur="1s" fill="freeze"></animate>
-            <animate id="GetBackCircle6" begin="indefinite" attributeName="cy" from="200%" to="27%" dur="1s" fill="freeze"></animate>
-        </circle>
-        <circle id="circle7" cx="87.2%" cy="125" r="5%" fill="url(#pattern8)" visibility="visible">
-            <animate id="GetAwayCircle7" begin="indefinite" attributeName="cy" from="125" to="3000" dur="1s" fill="freeze"></animate>
-            <animate id="GetBackCircle7" begin="indefinite" attributeName="cy" from="3000" to="125" dur="1s" fill="freeze"></animate>
-        </circle>
-        <circle id="circle8" cx="19%" cy="63%" r="95" fill="url(#pattern9)" visibility="visible">
-            <animate id="GetAwayCircle8" begin="indefinite" attributeName="cy" from="63%" to="200%" dur="1s" fill="freeze"></animate>
-            <animate id="GetBackCircle8" begin="indefinite" attributeName="cy" from="200%" to="63%" dur="1s" fill="freeze"></animate>
-        </circle>
-
-
-
-        <polygon id="pyramid1" points="900,15 900,15 900,15" fill="url(#pattern1)" visibility="visible" >
-            <animate id="OpenPyramid1" begin="indefinite" attributeName="points" from="900,15 900,15 900,15" to="900,15 100,1200 1700,1200" dur="7s" fill="freeze"></animate>
-            <animate id="ClosePyramid1" begin="indefinite" attributeName="points" from="900,15 100,1200 1700,1200" to="900,15 900,15 900,15" dur="0.3s" fill="freeze"></animate>
-        </polygon>
-
-
-
-
-
-
-
-        <defs>
-            <clipPath id="circleView">
-                <circle id="orb2" onclick="enter_state1()" cx="13.8%" cy="125" r="5%" fill="#FFFFFF">
-                    <animate id="OpenOrb2" begin="indefinite" attributeName="cx" from="13.8%" to="50%" dur="0.5s" fill="freeze"></animate>
-                    <animate id="OpenOrb4" begin="indefinite" attributeName="r" from="5%" to="10%" dur="7s" fill="freeze"></animate>
-                    <animate id="CloseOrb2" begin="indefinite" attributeName="cx" from="50%" to="13.8%" dur="1s" fill="freeze"></animate>
-                    <animate id="CloseOrb4" begin="indefinite" attributeName="r" from="10%" to="5%" dur="3s" fill="freeze"></animate>
-                </circle>
-            </clipPath>
-        </defs>
-        <image width="27.7%" onclick="enter_state1()" height="12.5%" xlink:href="https://i.pinimg.com/originals/ff/ea/83/ffea83e9bdc39afafebd459dfde07b01.gif" clip-path="url(#circleView)">
-            <animate id="OpenOrb3" begin="indefinite" attributeName="width" from="27.7%" to="100%" dur="0.5s" fill="freeze"></animate>
-            <animate id="CloseOrb3" begin="indefinite" attributeName="width" from="100%" to="27.7%" dur="1s" fill="freeze"></animate>
-        </image>
-
-
-
-
-
-    </svg>
-
 
 
 
     <script>
 
-        var state1 = false;
-        var state2 = false;
-
-        function enter_state1(){
-            console.log('aye');
-            if(state1 == false){
-                document.getElementById('OpenOrb2').beginElement();
-                document.getElementById('OpenOrb3').beginElement();
-                document.getElementById('OpenOrb4').beginElement();
-                document.getElementById('OpenPyramid1').beginElement();
-
-                document.getElementById('GetAwayCircle1').beginElement();
-                document.getElementById('GetAwayCircle2').beginElement();
-                document.getElementById('GetAwayCircle3').beginElement();
-                document.getElementById('GetAwayCircle4').beginElement();
-                document.getElementById('GetAwayCircle5').beginElement();
-                document.getElementById('GetAwayCircle6').beginElement();
-                document.getElementById('GetAwayCircle7').beginElement();
-                document.getElementById('GetAwayCircle8').beginElement();
-                state1 = true;
-            } else {
-                document.getElementById('CloseOrb2').beginElement();
-                document.getElementById('CloseOrb3').beginElement();
-                document.getElementById('CloseOrb4').beginElement();
-                document.getElementById('ClosePyramid1').beginElement();
-
-                document.getElementById('GetBackCircle1').beginElement();
-                document.getElementById('GetBackCircle2').beginElement();
-                document.getElementById('GetBackCircle3').beginElement();
-                document.getElementById('GetBackCircle4').beginElement();
-                document.getElementById('GetBackCircle5').beginElement();
-                document.getElementById('GetBackCircle6').beginElement();
-                document.getElementById('GetBackCircle7').beginElement();
-                document.getElementById('GetBackCircle8').beginElement();
-                state1 = false;
-            }
-        }
-        function enter_state2(){
-            console.log('state2');
-            if(state2 == false){
-                document.getElementById('orb2').style.visibility = 'hidden';
-                document.getElementById('OpenCircle1X').beginElement();
-                document.getElementById('OpenCircle1Y').beginElement();
-                document.getElementById('OpenCircle1R').beginElement();
-                document.getElementById('OpenEllipse1X').beginElement();
-                document.getElementById('OpenEllipse1Y').beginElement();
-
-                document.getElementById('GetAwayCircle2').beginElement();
-                document.getElementById('GetAwayCircle3').beginElement();
-                document.getElementById('GetAwayCircle4').beginElement();
-                document.getElementById('GetAwayCircle5').beginElement();
-                document.getElementById('GetAwayCircle6').beginElement();
-                document.getElementById('GetAwayCircle7').beginElement();
-                document.getElementById('GetAwayCircle8').beginElement();
-                state2 = true;
-            } else {
-                document.getElementById('orb2').style.visibility = 'visible';
-                document.getElementById('CloseCircle1X').beginElement();
-                document.getElementById('CloseCircle1Y').beginElement();
-                document.getElementById('CloseCircle1R').beginElement();
-                document.getElementById('CloseEllipse1X').beginElement();
-                document.getElementById('CloseEllipse1Y').beginElement();
-
-                document.getElementById('GetBackCircle2').beginElement();
-                document.getElementById('GetBackCircle3').beginElement();
-                document.getElementById('GetBackCircle4').beginElement();
-                document.getElementById('GetBackCircle5').beginElement();
-                document.getElementById('GetBackCircle6').beginElement();
-                document.getElementById('GetBackCircle7').beginElement();
-                document.getElementById('GetBackCircle8').beginElement();
-                state2 = false;
-            }
-        }
     </script>
 
 </body>
