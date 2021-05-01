@@ -1,0 +1,126 @@
+{
+  "name": "@svgdotjs/svg.js",
+  "version": "3.0.16",
+  "description": "A lightweight library for manipulating and animating SVG.",
+  "url": "https://svgdotjs.github.io/",
+  "homepage": "https://svgdotjs.github.io/",
+  "keywords": [
+    "svg",
+    "vector",
+    "graphics",
+    "animation"
+  ],
+  "author": "Wout Fierens <wout@mick-wout.com>",
+  "main": "dist/svg.node.js",
+  "unpkg": "dist/svg.min.js",
+  "jsdelivr": "dist/svg.min.js",
+  "browser": "dist/svg.esm.js",
+  "module": "src/main.js",
+  "files": [
+    "/dist",
+    "/src",
+    "/svg.js.d.ts",
+    "/.config"
+  ],
+  "maintainers": [
+    {
+      "name": "Wout Fierens",
+      "email": "wout@mick-wout.com"
+    },
+    {
+      "name": "Alex Ewerlöf",
+      "email": "alex@userpixel.com",
+      "web": "http://www.ewerlof.name"
+    },
+    {
+      "name": "Ulrich-Matthias Schäfer",
+      "email": "ulima.ums@googlemail.com",
+      "web": "https://svgdotjs.github.io/"
+    },
+    {
+      "name": "Jon Ege Ronnenberg",
+      "email": "jon@svgjs.com",
+      "url": "https://keybase.io/dotnetcarpenter"
+    }
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/svgdotjs/svg.js.git"
+  },
+  "github": "https://github.com/svgdotjs/svg.js",
+  "license": "MIT",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/Fuzzyma"
+  },
+  "typings": "./svg.js.d.ts",
+  "scripts": {
+    "build": "npm run fix && npm run rollup",
+    "build:polyfills": "npx rollup -c .config/rollup.polyfills.js",
+    "build:tests": "npx rollup -c .config/rollup.tests.js",
+    "fix": "npx eslint ./src --fix",
+    "lint": "npx eslint ./src",
+    "rollup": "npx rollup -c .config/rollup.config.js",
+    "server": "npx http-server ./ -d",
+    "test": "npx karma start .config/karma.conf.js || true",
+    "test:ci": "karma start .config/karma.conf.saucelabs.js",
+    "test:svgdom": "node -r esm ./spec/runSVGDomTest.js || true",
+    "zip": "zip -j dist/svg.js.zip -- LICENSE.txt README.md CHANGELOG.md dist/svg.js dist/svg.js.map dist/svg.min.js dist/svg.min.js.map dist/polyfills.js dist/polyfillsIE.js",
+    "prepublishOnly": "rm -rf ./dist && npm run build && npm run build:polyfills && npm test",
+    "postpublish": "npm run zip",
+    "checkTests": "node spec/checkForAllTests.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-external-helpers": "^7.12.1",
+    "@babel/plugin-transform-classes": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/runtime": "^7.12.5",
+    "@babel/runtime-corejs3": "^7.12.5",
+    "@rollup/plugin-babel": "^5.2.2",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-multi-entry": "^4.0.0",
+    "@rollup/plugin-node-resolve": "^11.0.1",
+    "@target/custom-event-polyfill": "github:Adobe-Marketing-Cloud/custom-event-polyfill",
+    "babel-eslint": "^10.1.0",
+    "core-js": "^3.8.2",
+    "coveralls": "^3.1.0",
+    "eslint": "^7.17.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-sort-class-members": "^1.9.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "esm": "^3.2.25",
+    "http-server": "^0.12.3",
+    "jasmine": "^3.6.3",
+    "jasmine-core": "^3.6.0",
+    "karma": "^5.2.3",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-coverage": "^2.0.3",
+    "karma-firefox-launcher": "^2.1.0",
+    "karma-jasmine": "^4.0.1",
+    "karma-sauce-launcher": "^4.3.4",
+    "rollup": "^2.36.1",
+    "rollup-plugin-filesize": "^9.1.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "typescript": "^4.1.3",
+    "yargs": "^16.2.0",
+    "svgdom": "^0.1.8"
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 0.25%",
+    "not maintained node versions",
+    "not dead"
+  ]
+}
