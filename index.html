@@ -52,7 +52,7 @@
 
 
         <ellipse id="ellipse2" cx="20%" cy="40%" rx="5%" ry="11%" fill="black" visibility="visible">
-            <animate id="OpenEllipse2X" begin="indefinite" attributeName="rx" from="0%" to="30%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenEllipse2X" begin="indefinite" attributeName="cx" from="0%" to="30%" dur="0.5s" fill="freeze"></animate>
             <animate id="CloseEllipse2X" begin="indefinite" attributeName="rx" from="30%" to="0%" dur="0.5s" fill="freeze"></animate>
             <animate id="OpenEllipse2Y" begin="indefinite" attributeName="ry" from="0%" to="50%" dur="0.5s" fill="freeze"></animate>
             <animate id="CloseEllipse2Y" begin="indefinite" attributeName="ry" from="50%" to="0%" dur="0.5s" fill="freeze"></animate>
@@ -76,8 +76,8 @@
 
             <animate id="OpenEllipse3XState1" begin="indefinite" attributeName="cx" from="30%" to="10%" dur="0.5s" fill="freeze"></animate>
             <animate id="CloseEllipse3XState1" begin="indefinite" attributeName="cx" from="10%" to="30%" dur="0.5s" fill="freeze"></animate>
-            <animate id="OpenEllipse3YState1" begin="indefinite" attributeName="cy" from="80%" to="95%" dur="0.5s" fill="freeze"></animate>
-            <animate id="CloseEllipse3YState1" begin="indefinite" attributeName="cy" from="95%" to="80%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenEllipse3YState1" begin="indefinite" attributeName="cy" from="80%" to="94%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse3YState1" begin="indefinite" attributeName="cy" from="94%" to="80%" dur="0.5s" fill="freeze"></animate>
             <animate id="OpenEllipse3RXState1" begin="indefinite" attributeName="rx" from="3%" to="2%" dur="0.5s" fill="freeze"></animate>
             <animate id="CloseEllipse3RXState1" begin="indefinite" attributeName="rx" from="2%" to="3%" dur="0.5s" fill="freeze"></animate>
             <animate id="OpenEllipse3RYState1" begin="indefinite" attributeName="ry" from="6%" to="5%" dur="0.5s" fill="freeze"></animate>
@@ -94,8 +94,8 @@
 
             <animate id="OpenEllipse4XState1" begin="indefinite" attributeName="cx" from="70%" to="90%" dur="0.5s" fill="freeze"></animate>
             <animate id="CloseEllipse4XState1" begin="indefinite" attributeName="cx" from="90%" to="70%" dur="0.5s" fill="freeze"></animate>
-            <animate id="OpenEllipse4YState1" begin="indefinite" attributeName="cy" from="80%" to="95%" dur="0.5s" fill="freeze"></animate>
-            <animate id="CloseEllipse4YState1" begin="indefinite" attributeName="cy" from="95%" to="80%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenEllipse4YState1" begin="indefinite" attributeName="cy" from="80%" to="94%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse4YState1" begin="indefinite" attributeName="cy" from="94%" to="80%" dur="0.5s" fill="freeze"></animate>
             <animate id="OpenEllipse4RXState1" begin="indefinite" attributeName="rx" from="3%" to="2%" dur="0.5s" fill="freeze"></animate>
             <animate id="CloseEllipse4RXState1" begin="indefinite" attributeName="rx" from="2%" to="3%" dur="0.5s" fill="freeze"></animate>
             <animate id="OpenEllipse4RYState1" begin="indefinite" attributeName="ry" from="6%" to="5%" dur="0.5s" fill="freeze"></animate>
@@ -129,6 +129,13 @@
             <animate id="CloseEllipse6RX" begin="indefinite" attributeName="rx" from="50%" to="5%" dur="0.5s" fill="freeze"></animate>
             <animate id="OpenEllipse6RY" begin="indefinite" attributeName="ry" from="9%" to="50%" dur="0.5s" fill="freeze"></animate>
             <animate id="CloseEllipse6RY" begin="indefinite" attributeName="ry" from="50%" to="9%" dur="0.5s" fill="freeze"></animate>
+
+            <animate id="OpenEllipse6YState1" begin="indefinite" attributeName="cy" from="90%" to="95%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse6YState1" begin="indefinite" attributeName="cy" from="95%" to="90%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenEllipse6RXState1" begin="indefinite" attributeName="rx" from="5%" to="20%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse6RXState1" begin="indefinite" attributeName="rx" from="20%" to="5%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenEllipse6RYState1" begin="indefinite" attributeName="ry" from="9%" to="2%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse6RYState1" begin="indefinite" attributeName="ry" from="2%" to="9%" dur="0.5s" fill="freeze"></animate>
         </ellipse>
         <text id="label6" x="50%" y="90%" fill="white" visibility="visible" font-size="12" alignment-baseline="middle" text-anchor="middle">Label6</text>
 
@@ -171,6 +178,10 @@
                 document.getElementById('OpenEllipse5RXState1').beginElement();
                 document.getElementById('OpenEllipse5RYState1').beginElement();
                 document.getElementById('label5').style.visibility = 'hidden';
+                document.getElementById('OpenEllipse6YState1').beginElement();
+                document.getElementById('OpenEllipse6RXState1').beginElement();
+                document.getElementById('OpenEllipse6RYState1').beginElement();
+                document.getElementById('label6').style.visibility = 'hidden';
 
                 state1 = true;
             } else {
@@ -200,6 +211,10 @@
                 document.getElementById('CloseEllipse5RXState1').beginElement();
                 document.getElementById('CloseEllipse5RYState1').beginElement();
                 document.getElementById('label5').style.visibility = 'visible';
+                document.getElementById('CloseEllipse6YState1').beginElement();
+                document.getElementById('CloseEllipse6RXState1').beginElement();
+                document.getElementById('CloseEllipse6RYState1').beginElement();
+                document.getElementById('label6').style.visibility = 'visible';
 
                 state1 = false;
             }
