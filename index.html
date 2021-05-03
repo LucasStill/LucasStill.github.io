@@ -35,6 +35,36 @@
 
     <svg height="100%" width="100%" viewBox="0 0 1800 700">
 
+        <text id="menu1" x="20%" y="30%" fill="white" visibility="hidden" font-size="50" font-family="Impact" alignment-baseline="middle" text-anchor="middle">Menu1</text>
+
+        <text id="menu2" x="80%" y="30%" fill="white" visibility="hidden" font-size="50" font-family="Impact" alignment-baseline="middle" text-anchor="middle">Menu2</text>
+
+        <text id="menu3" x="50%" y="50%" fill="white" visibility="hidden" font-size="50" font-family="Impact" alignment-baseline="middle" text-anchor="middle">Menu3</text>
+
+        <text id="menu4" x="30%" y="70%" fill="white" visibility="hidden" font-size="50" font-family="Impact" alignment-baseline="middle" text-anchor="middle">Menu4</text>
+
+        <text id="menu5" x="70%" y="70%" fill="white" visibility="hidden" font-size="50" font-family="Impact" alignment-baseline="middle" text-anchor="middle">Menu5</text>
+
+
+        <rect id="rect1" x="20%" y="10%" width="0%" height="0%" fill="white">
+            <animate id="OpenRect1H" begin="indefinite" attributeName="height" from="0%" to="80%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseRect1H" begin="indefinite" attributeName="height" from="80%" to="0%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenRect1W" begin="indefinite" attributeName="width" from="0%" to="60%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseRect1W" begin="indefinite" attributeName="width" from="60%" to="0%" dur="0.5s" fill="freeze"></animate>
+        </rect>
+
+        <text id="news" x="25%" y="15%" fill="black" visibility="hidden" textLength="130m" lengthAdjust="spacing">
+            <tspan dy="1em" font-weight="bold" textLength="10em" font-size="14">Breaking!</tspan>
+            <tspan dy="2.4em" x="25%">Scriptkiddies managed to exit VIM! User said </tspan>
+            <tspan font-style="italic">"I'm stuck and cannot escape."</tspan>
+            <tspan> Another fallen to the terminals.</tspan>
+            <tspan dy="1.2em" x="25%">Ensues a terrible battle between users about which command is the best to use to exit the famous editor.</tspan>
+
+
+
+        </text>
+
+
         <ellipse id="ellipse1" onclick="enterState1()" cx="50%" cy="50%" rx="7%" ry="10%" fill="black" visibility="visible">
             <animate id="OpenEllipse1X" begin="indefinite" attributeName="cx" from="50%" to="10%" dur="1s" fill="freeze"></animate>
             <animate id="CloseEllipse1X" begin="indefinite" attributeName="rx" from="30%" to="0%" dur="0.95s" fill="freeze"></animate>
@@ -44,18 +74,40 @@
             <animate id="CloseEllipse1RX" begin="indefinite" attributeName="rx" from="40%" to="7%" dur="0.5s" fill="freeze"></animate>
             <animate id="OpenEllipse1RY" begin="indefinite" attributeName="ry" from="10%" to="5%" dur="0.5s" fill="freeze"></animate>
             <animate id="CloseEllipse1RY" begin="indefinite" attributeName="ry" from="5%" to="10%" dur="0.5s" fill="freeze"></animate>
+
+            <animate id="OpenEllipse1XState1" begin="indefinite" attributeName="cx" from="50%" to="90%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse1XState1" begin="indefinite" attributeName="cx" from="90%" to="50%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenEllipse1YState1" begin="indefinite" attributeName="cy" from="50%" to="46%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse1YState1" begin="indefinite" attributeName="cy" from="46%" to="50%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenEllipse1RXState1" begin="indefinite" attributeName="rx" from="7%" to="2%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse1RXState1" begin="indefinite" attributeName="rx" from="2%" to="7%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenEllipse1RYState1" begin="indefinite" attributeName="ry" from="10%" to="5%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse1RYState1" begin="indefinite" attributeName="ry" from="5%" to="10%" dur="0.5s" fill="freeze"></animate>
+
+            <animate id="OpenEllipse1XState5" begin="indefinite" attributeName="cx" from="50%" to="10%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse1XState5" begin="indefinite" attributeName="cx" from="10%" to="50%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenEllipse1YState5" begin="indefinite" attributeName="cy" from="50%" to="46%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse1YState5" begin="indefinite" attributeName="cy" from="46%" to="50%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenEllipse1RXState5" begin="indefinite" attributeName="rx" from="7%" to="2%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse1RXState5" begin="indefinite" attributeName="rx" from="2%" to="7%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenEllipse1RYState5" begin="indefinite" attributeName="ry" from="10%" to="5%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse1RYState5" begin="indefinite" attributeName="ry" from="5%" to="10%" dur="0.5s" fill="freeze"></animate>
         </ellipse>
-        <text id="label1" x="50%" y="50%" fill="white" visibility="visible" font-size="12" alignment-baseline="middle" text-anchor="middle">Label1
+        <text id="label1" x="50%" y="50%" fill="white" visibility="visible" font-size="16" alignment-baseline="middle" text-anchor="middle">Explore
             <animate id="OpenText1" begin="indefinite" attributeName="y" from="50%" to="5%" dur="0.5s" fill="freeze"></animate>
             <animate id="CloseText1" begin="indefinite" attributeName="y" from="5%" to="50%" dur="0.5s" fill="freeze"></animate>
         </text>
 
 
-        <ellipse id="ellipse2" cx="20%" cy="40%" rx="5%" ry="11%" fill="black" visibility="visible">
-            <animate id="OpenEllipse2X" begin="indefinite" attributeName="cx" from="0%" to="30%" dur="0.5s" fill="freeze"></animate>
-            <animate id="CloseEllipse2X" begin="indefinite" attributeName="rx" from="30%" to="0%" dur="0.5s" fill="freeze"></animate>
+        <ellipse id="ellipse2" onclick="enterState2()" cx="20%" cy="40%" rx="5%" ry="11%" fill="black" visibility="visible">
+            <animate id="OpenEllipse2X" begin="indefinite" attributeName="cx" from="20%" to="10%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse2X" begin="indefinite" attributeName="cx" from="10%" to="20%" dur="0.5s" fill="freeze"></animate>
             <animate id="OpenEllipse2Y" begin="indefinite" attributeName="ry" from="0%" to="50%" dur="0.5s" fill="freeze"></animate>
             <animate id="CloseEllipse2Y" begin="indefinite" attributeName="ry" from="50%" to="0%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenEllipse2RX" begin="indefinite" attributeName="rx" from="5%" to="2%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse2RX" begin="indefinite" attributeName="rx" from="2%" to="5%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenEllipse2RY" begin="indefinite" attributeName="ry" from="11%" to="20%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse2RY" begin="indefinite" attributeName="ry" from="20%" to="11%" dur="0.5s" fill="freeze"></animate>
 
             <animate id="OpenEllipse2XState1" begin="indefinite" attributeName="cx" from="20%" to="5%" dur="0.5s" fill="freeze"></animate>
             <animate id="CloseEllipse2XState1" begin="indefinite" attributeName="cx" from="5%" to="20%" dur="0.5s" fill="freeze"></animate>
@@ -65,14 +117,30 @@
             <animate id="CloseEllipse2RXState1" begin="indefinite" attributeName="rx" from="2%" to="5%" dur="0.5s" fill="freeze"></animate>
             <animate id="OpenEllipse2RYState1" begin="indefinite" attributeName="ry" from="11%" to="5%" dur="0.5s" fill="freeze"></animate>
             <animate id="CloseEllipse2RYState1" begin="indefinite" attributeName="ry" from="5%" to="11%" dur="0.5s" fill="freeze"></animate>
-        </ellipse>
-        <text id="label2" x="20%" y="40%" fill="white" visibility="visible" font-size="12" alignment-baseline="middle" text-anchor="middle">Label2</text>
 
-        <ellipse id="ellipse3" cx="30%" cy="80%" rx="3%" ry="6%" fill="black" visibility="visible">
-            <animate id="OpenEllipse1X" begin="indefinite" attributeName="rx" from="0%" to="30%" dur="1s" fill="freeze"></animate>
-            <animate id="CloseEllipse1X" begin="indefinite" attributeName="rx" from="30%" to="0%" dur="0.95s" fill="freeze"></animate>
-            <animate id="OpenEllipse1Y" begin="indefinite" attributeName="ry" from="0%" to="50%" dur="1s" fill="freeze"></animate>
-            <animate id="CloseEllipse1Y" begin="indefinite" attributeName="ry" from="50%" to="0%" dur="0.95s" fill="freeze"></animate>
+            <animate id="OpenEllipse2XState5" begin="indefinite" attributeName="cx" from="20%" to="5%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse2XState5" begin="indefinite" attributeName="cx" from="5%" to="20%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenEllipse2YState5" begin="indefinite" attributeName="cy" from="40%" to="70%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse2YState5" begin="indefinite" attributeName="cy" from="70%" to="40%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenEllipse2RXState5" begin="indefinite" attributeName="rx" from="5%" to="2%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse2RXState5" begin="indefinite" attributeName="rx" from="2%" to="5%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenEllipse2RYState5" begin="indefinite" attributeName="ry" from="11%" to="5%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse2RYState5" begin="indefinite" attributeName="ry" from="5%" to="11%" dur="0.5s" fill="freeze"></animate>
+        </ellipse>
+        <text id="label2" x="20%" y="40%" fill="white" visibility="visible" font-size="16" alignment-baseline="middle" text-anchor="middle">News
+            <animate id="OpenText2" begin="indefinite" attributeName="x" from="20%" to="10%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseText2" begin="indefinite" attributeName="x" from="10%" to="20%" dur="0.5s" fill="freeze"></animate>
+        </text>
+
+        <ellipse id="ellipse3" onclick="enterState3()" cx="30%" cy="80%" rx="3%" ry="6%" fill="black" visibility="visible">
+            <animate id="OpenEllipse3X" begin="indefinite" attributeName="cx" from="30%" to="20%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse3X" begin="indefinite" attributeName="cx" from="20%" to="30%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenEllipse3Y" begin="indefinite" attributeName="cy" from="80%" to="20%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse3Y" begin="indefinite" attributeName="cy" from="20%" to="80%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenEllipse3RX" begin="indefinite" attributeName="rx" from="3%" to="6%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse3RX" begin="indefinite" attributeName="rx" from="6%" to="3%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenEllipse3RY" begin="indefinite" attributeName="ry" from="6%" to="12%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse3RY" begin="indefinite" attributeName="ry" from="12%" to="6%" dur="0.5s" fill="freeze"></animate>
 
             <animate id="OpenEllipse3XState1" begin="indefinite" attributeName="cx" from="30%" to="10%" dur="0.5s" fill="freeze"></animate>
             <animate id="CloseEllipse3XState1" begin="indefinite" attributeName="cx" from="10%" to="30%" dur="0.5s" fill="freeze"></animate>
@@ -83,14 +151,23 @@
             <animate id="OpenEllipse3RYState1" begin="indefinite" attributeName="ry" from="6%" to="5%" dur="0.5s" fill="freeze"></animate>
             <animate id="CloseEllipse3RYState1" begin="indefinite" attributeName="ry" from="5%" to="6%" dur="0.5s" fill="freeze"></animate>
         </ellipse>
-        <text id="label3" x="30%" y="80%" fill="white" visibility="visible" font-size="12" alignment-baseline="middle" text-anchor="middle">Label3</text>
+        <text id="label3" x="30%" y="80%" fill="white" visibility="visible" font-size="16" alignment-baseline="middle" text-anchor="middle">Offer
+            <animate id="OpenText3X" begin="indefinite" attributeName="x" from="30%" to="20%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseText3X" begin="indefinite" attributeName="x" from="20%" to="30%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenText3Y" begin="indefinite" attributeName="y" from="80%" to="20%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseText3Y" begin="indefinite" attributeName="y" from="20%" to="80%" dur="0.5s" fill="freeze"></animate>
+        </text>
 
 
-        <ellipse id="ellipse4" cx="70%" cy="80%" rx="3%" ry="6%" fill="black" visibility="visible">
-            <animate id="OpenEllipse1X" begin="indefinite" attributeName="rx" from="0%" to="30%" dur="1s" fill="freeze"></animate>
-            <animate id="CloseEllipse1X" begin="indefinite" attributeName="rx" from="30%" to="0%" dur="0.95s" fill="freeze"></animate>
-            <animate id="OpenEllipse1Y" begin="indefinite" attributeName="ry" from="0%" to="50%" dur="1s" fill="freeze"></animate>
-            <animate id="CloseEllipse1Y" begin="indefinite" attributeName="ry" from="50%" to="0%" dur="0.95s" fill="freeze"></animate>
+        <ellipse id="ellipse4" onclick="enterState4()" cx="70%" cy="80%" rx="3%" ry="6%" fill="black" visibility="visible">
+            <<animate id="OpenEllipse4X" begin="indefinite" attributeName="cx" from="70%" to="80%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse4X" begin="indefinite" attributeName="cx" from="80%" to="70%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenEllipse4Y" begin="indefinite" attributeName="cy" from="80%" to="20%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse4Y" begin="indefinite" attributeName="cy" from="20%" to="80%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenEllipse4RX" begin="indefinite" attributeName="rx" from="3%" to="6%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse4RX" begin="indefinite" attributeName="rx" from="6%" to="3%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenEllipse4RY" begin="indefinite" attributeName="ry" from="6%" to="12%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse4RY" begin="indefinite" attributeName="ry" from="12%" to="6%" dur="0.5s" fill="freeze"></animate>
 
             <animate id="OpenEllipse4XState1" begin="indefinite" attributeName="cx" from="70%" to="90%" dur="0.5s" fill="freeze"></animate>
             <animate id="CloseEllipse4XState1" begin="indefinite" attributeName="cx" from="90%" to="70%" dur="0.5s" fill="freeze"></animate>
@@ -101,14 +178,21 @@
             <animate id="OpenEllipse4RYState1" begin="indefinite" attributeName="ry" from="6%" to="5%" dur="0.5s" fill="freeze"></animate>
             <animate id="CloseEllipse4RYState1" begin="indefinite" attributeName="ry" from="5%" to="6%" dur="0.5s" fill="freeze"></animate>
         </ellipse>
-        <text id="label4" x="70%" y="80%" fill="white" visibility="visible" font-size="12" alignment-baseline="middle" text-anchor="middle">Label4</text>
+        <text id="label4" x="70%" y="80%" fill="white" visibility="visible" font-size="16" alignment-baseline="middle" text-anchor="middle">Contact
+            <animate id="OpenText4X" begin="indefinite" attributeName="x" from="70%" to="80%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseText4X" begin="indefinite" attributeName="x" from="80%" to="70%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenText4Y" begin="indefinite" attributeName="y" from="80%" to="20%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseText4Y" begin="indefinite" attributeName="y" from="20%" to="80%" dur="0.5s" fill="freeze"></animate>
+        </text>
 
 
-        <ellipse id="ellipse5" cx="80%" cy="40%" rx="5%" ry="11%" fill="black" visibility="visible">
-            <animate id="OpenEllipse1X" begin="indefinite" attributeName="rx" from="0%" to="30%" dur="1s" fill="freeze"></animate>
-            <animate id="CloseEllipse1X" begin="indefinite" attributeName="rx" from="30%" to="0%" dur="0.95s" fill="freeze"></animate>
-            <animate id="OpenEllipse1Y" begin="indefinite" attributeName="ry" from="0%" to="50%" dur="1s" fill="freeze"></animate>
-            <animate id="CloseEllipse1Y" begin="indefinite" attributeName="ry" from="50%" to="0%" dur="0.95s" fill="freeze"></animate>
+        <ellipse id="ellipse5" onclick="enterState5()" cx="80%" cy="40%" rx="5%" ry="11%" fill="black" visibility="visible">
+            <animate id="OpenEllipse5X" begin="indefinite" attributeName="cx" from="80%" to="90%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse5X" begin="indefinite" attributeName="cx" from="90%" to="80%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenEllipse5RX" begin="indefinite" attributeName="rx" from="5%" to="2%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse5RX" begin="indefinite" attributeName="rx" from="2%" to="5%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenEllipse5RY" begin="indefinite" attributeName="ry" from="11%" to="20%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseEllipse5RY" begin="indefinite" attributeName="ry" from="20%" to="11%" dur="0.5s" fill="freeze"></animate>
 
             <animate id="OpenEllipse5XState1" begin="indefinite" attributeName="cx" from="80%" to="95%" dur="0.5s" fill="freeze"></animate>
             <animate id="CloseEllipse5XState1" begin="indefinite" attributeName="cx" from="95%" to="80%" dur="0.5s" fill="freeze"></animate>
@@ -119,7 +203,10 @@
             <animate id="OpenEllipse5RYState1" begin="indefinite" attributeName="ry" from="11%" to="5%" dur="0.5s" fill="freeze"></animate>
             <animate id="CloseEllipse5RYState1" begin="indefinite" attributeName="ry" from="5%" to="11%" dur="0.5s" fill="freeze"></animate>
         </ellipse>
-        <text id="label5" x="80%" y="40%" fill="white" visibility="visible" font-size="12" alignment-baseline="middle" text-anchor="middle">Label5</text>
+        <text id="label5" x="80%" y="40%" fill="white" visibility="visible" font-size="16" alignment-baseline="middle" text-anchor="middle">Mission
+            <animate id="OpenText5" begin="indefinite" attributeName="x" from="80%" to="90%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseText5" begin="indefinite" attributeName="x" from="90%" to="80%" dur="0.5s" fill="freeze"></animate>
+        </text>
 
 
         <ellipse id="ellipse6" onclick="enterState6()" cx="50%" cy="90%" rx="5%" ry="9%" fill="black" visibility="visible">
@@ -137,7 +224,7 @@
             <animate id="OpenEllipse6RYState1" begin="indefinite" attributeName="ry" from="9%" to="2%" dur="0.5s" fill="freeze"></animate>
             <animate id="CloseEllipse6RYState1" begin="indefinite" attributeName="ry" from="2%" to="9%" dur="0.5s" fill="freeze"></animate>
         </ellipse>
-        <text id="label6" x="50%" y="90%" fill="white" visibility="visible" font-size="12" alignment-baseline="middle" text-anchor="middle">Label6</text>
+        <text id="label6" x="50%" y="90%" fill="white" visibility="visible" font-size="16" alignment-baseline="middle" text-anchor="middle">Who are We</text>
 
 
     </svg>
@@ -147,11 +234,15 @@
     <script>
 
         var state1 = false;
+        var state2 = false;
+        var state3 = false;
+        var state4 = false;
+        var state5 = false;
         var state6 = false;
 
         function enterState1(){
 
-            if(state1==false){
+            if(state1==false && (state2==false && state3==false && state4==false && state5==false && state6==false)){
                 console.log(state1);
                 document.getElementById('OpenEllipse1Y').beginElement();
                 document.getElementById('OpenText1').beginElement();
@@ -183,8 +274,15 @@
                 document.getElementById('OpenEllipse6RYState1').beginElement();
                 document.getElementById('label6').style.visibility = 'hidden';
 
+                //Menu stuff:
+                document.getElementById('menu1').style.visibility = 'visible';
+                document.getElementById('menu2').style.visibility = 'visible';
+                document.getElementById('menu3').style.visibility = 'visible';
+                document.getElementById('menu4').style.visibility = 'visible';
+                document.getElementById('menu5').style.visibility = 'visible';
+
                 state1 = true;
-            } else {
+            } else if(state2==false && state3==false && state4==false && state5==false && state6==false){
                 console.log(state1);
                 document.getElementById('CloseEllipse1Y').beginElement();
                 document.getElementById('CloseEllipse1RX').beginElement();
@@ -216,19 +314,329 @@
                 document.getElementById('CloseEllipse6RYState1').beginElement();
                 document.getElementById('label6').style.visibility = 'visible';
 
+                //Menu stuff
+                document.getElementById('menu1').style.visibility = 'hidden';
+                document.getElementById('menu2').style.visibility = 'hidden';
+                document.getElementById('menu3').style.visibility = 'hidden';
+                document.getElementById('menu4').style.visibility = 'hidden';
+                document.getElementById('menu5').style.visibility = 'hidden';
+
                 state1 = false;
+            }
+        }
+
+        function enterState2(){
+            if(state2==false && (state1==false && state3==false && state4==false && state5==false && state6==false)){
+                document.getElementById('OpenEllipse2X').beginElement();
+                document.getElementById('OpenEllipse2RX').beginElement();
+                document.getElementById('OpenEllipse2RY').beginElement();
+                document.getElementById('OpenText2').beginElement();
+
+                document.getElementById('OpenEllipse1XState1').beginElement();
+                document.getElementById('OpenEllipse1YState1').beginElement();
+                document.getElementById('OpenEllipse1RXState1').beginElement();
+                document.getElementById('OpenEllipse1RYState1').beginElement();
+                document.getElementById('label1').style.visibility = 'hidden';
+                document.getElementById('OpenEllipse3XState1').beginElement();
+                document.getElementById('OpenEllipse3YState1').beginElement();
+                document.getElementById('OpenEllipse3RXState1').beginElement();
+                document.getElementById('OpenEllipse3RYState1').beginElement();
+                document.getElementById('label3').style.visibility = 'hidden';
+                document.getElementById('OpenEllipse4XState1').beginElement();
+                document.getElementById('OpenEllipse4YState1').beginElement();
+                document.getElementById('OpenEllipse4RXState1').beginElement();
+                document.getElementById('OpenEllipse4RYState1').beginElement();
+                document.getElementById('label4').style.visibility = 'hidden';
+                document.getElementById('OpenEllipse5XState1').beginElement();
+                document.getElementById('OpenEllipse5YState1').beginElement();
+                document.getElementById('OpenEllipse5RXState1').beginElement();
+                document.getElementById('OpenEllipse5RYState1').beginElement();
+                document.getElementById('label5').style.visibility = 'hidden';
+                document.getElementById('OpenEllipse6YState1').beginElement();
+                document.getElementById('OpenEllipse6RXState1').beginElement();
+                document.getElementById('OpenEllipse6RYState1').beginElement();
+                document.getElementById('label6').style.visibility = 'hidden';
+
+                //Menu stuff
+                document.getElementById('OpenRect1H').beginElement();
+                document.getElementById('OpenRect1W').beginElement();
+                document.getElementById('news').style.visibility = 'visible';
+
+
+                state2 = true;
+            } else if(state1==false && state3==false && state4==false && state5==false && state6==false) {
+                document.getElementById('CloseEllipse2X').beginElement();
+                document.getElementById('CloseEllipse2RX').beginElement();
+                document.getElementById('CloseEllipse2RY').beginElement();
+                document.getElementById('CloseText2').beginElement();
+
+                document.getElementById('CloseEllipse1XState1').beginElement();
+                document.getElementById('CloseEllipse1YState1').beginElement();
+                document.getElementById('CloseEllipse1RXState1').beginElement();
+                document.getElementById('CloseEllipse1RYState1').beginElement();
+                document.getElementById('label1').style.visibility = 'visible';
+                document.getElementById('CloseEllipse3XState1').beginElement();
+                document.getElementById('CloseEllipse3YState1').beginElement();
+                document.getElementById('CloseEllipse3RXState1').beginElement();
+                document.getElementById('CloseEllipse3RYState1').beginElement();
+                document.getElementById('label3').style.visibility = 'visible';
+                document.getElementById('CloseEllipse4XState1').beginElement();
+                document.getElementById('CloseEllipse4YState1').beginElement();
+                document.getElementById('CloseEllipse4RXState1').beginElement();
+                document.getElementById('CloseEllipse4RYState1').beginElement();
+                document.getElementById('label4').style.visibility = 'visible';
+                document.getElementById('CloseEllipse5XState1').beginElement();
+                document.getElementById('CloseEllipse5YState1').beginElement();
+                document.getElementById('CloseEllipse5RXState1').beginElement();
+                document.getElementById('CloseEllipse5RYState1').beginElement();
+                document.getElementById('label5').style.visibility = 'visible';
+                document.getElementById('CloseEllipse6YState1').beginElement();
+                document.getElementById('CloseEllipse6RXState1').beginElement();
+                document.getElementById('CloseEllipse6RYState1').beginElement();
+                document.getElementById('label6').style.visibility = 'visible';
+
+                document.getElementById('CloseRect1H').beginElement();
+                document.getElementById('CloseRect1W').beginElement();
+                document.getElementById('news').style.visibility = 'hidden';
+
+                state2 = false;
+            }
+
+        }
+
+        function enterState3(){
+            if(state3==false && (state1==false && state2==false && state4==false && state5==false && state6==false)){
+                document.getElementById('OpenEllipse3X').beginElement();
+                document.getElementById('OpenEllipse3Y').beginElement();
+                document.getElementById('OpenEllipse3RX').beginElement();
+                document.getElementById('OpenEllipse3RY').beginElement();
+                document.getElementById('OpenText3X').beginElement();
+                document.getElementById('OpenText3Y').beginElement();
+
+
+                document.getElementById('OpenEllipse1XState1').beginElement();
+                document.getElementById('OpenEllipse1YState1').beginElement();
+                document.getElementById('OpenEllipse1RXState1').beginElement();
+                document.getElementById('OpenEllipse1RYState1').beginElement();
+                document.getElementById('label1').style.visibility = 'hidden';
+                document.getElementById('OpenEllipse2XState1').beginElement();
+                document.getElementById('OpenEllipse2YState1').beginElement();
+                document.getElementById('OpenEllipse2RXState1').beginElement();
+                document.getElementById('OpenEllipse2RYState1').beginElement();
+                document.getElementById('label2').style.visibility = 'hidden';
+                document.getElementById('OpenEllipse4XState1').beginElement();
+                document.getElementById('OpenEllipse4YState1').beginElement();
+                document.getElementById('OpenEllipse4RXState1').beginElement();
+                document.getElementById('OpenEllipse4RYState1').beginElement();
+                document.getElementById('label4').style.visibility = 'hidden';
+                document.getElementById('OpenEllipse5XState1').beginElement();
+                document.getElementById('OpenEllipse5YState1').beginElement();
+                document.getElementById('OpenEllipse5RXState1').beginElement();
+                document.getElementById('OpenEllipse5RYState1').beginElement();
+                document.getElementById('label5').style.visibility = 'hidden';
+                document.getElementById('OpenEllipse6YState1').beginElement();
+                document.getElementById('OpenEllipse6RXState1').beginElement();
+                document.getElementById('OpenEllipse6RYState1').beginElement();
+                document.getElementById('label6').style.visibility = 'hidden';
+
+                state3 = true;
+            } else if(state1==false && state2==false && state4==false && state5==false && state6==false){
+                document.getElementById('CloseEllipse3X').beginElement();
+                document.getElementById('CloseEllipse3Y').beginElement();
+                document.getElementById('CloseEllipse3RX').beginElement();
+                document.getElementById('CloseEllipse3RY').beginElement();
+                document.getElementById('CloseText3X').beginElement();
+                document.getElementById('CloseText3Y').beginElement();
+
+                document.getElementById('CloseEllipse1XState1').beginElement();
+                document.getElementById('CloseEllipse1YState1').beginElement();
+                document.getElementById('CloseEllipse1RXState1').beginElement();
+                document.getElementById('CloseEllipse1RYState1').beginElement();
+                document.getElementById('label1').style.visibility = 'visible';
+                document.getElementById('CloseEllipse2XState1').beginElement();
+                document.getElementById('CloseEllipse2YState1').beginElement();
+                document.getElementById('CloseEllipse2RXState1').beginElement();
+                document.getElementById('CloseEllipse2RYState1').beginElement();
+                document.getElementById('label2').style.visibility = 'visible';
+                document.getElementById('CloseEllipse4XState1').beginElement();
+                document.getElementById('CloseEllipse4YState1').beginElement();
+                document.getElementById('CloseEllipse4RXState1').beginElement();
+                document.getElementById('CloseEllipse4RYState1').beginElement();
+                document.getElementById('label4').style.visibility = 'visible';
+                document.getElementById('CloseEllipse5XState1').beginElement();
+                document.getElementById('CloseEllipse5YState1').beginElement();
+                document.getElementById('CloseEllipse5RXState1').beginElement();
+                document.getElementById('CloseEllipse5RYState1').beginElement();
+                document.getElementById('label5').style.visibility = 'visible';
+                document.getElementById('CloseEllipse6YState1').beginElement();
+                document.getElementById('CloseEllipse6RXState1').beginElement();
+                document.getElementById('CloseEllipse6RYState1').beginElement();
+                document.getElementById('label6').style.visibility = 'visible';
+
+                state3 = false;
+            }
+
+        }
+
+        function enterState4(){
+            if(state4==false && (state1==false && state2==false && state3==false && state5==false && state6==false)){
+                document.getElementById('OpenEllipse4X').beginElement();
+                document.getElementById('OpenEllipse4Y').beginElement();
+                document.getElementById('OpenEllipse4RX').beginElement();
+                document.getElementById('OpenEllipse4RY').beginElement();
+                document.getElementById('OpenText4X').beginElement();
+                document.getElementById('OpenText4Y').beginElement();
+
+
+                document.getElementById('OpenEllipse1XState1').beginElement();
+                document.getElementById('OpenEllipse1YState1').beginElement();
+                document.getElementById('OpenEllipse1RXState1').beginElement();
+                document.getElementById('OpenEllipse1RYState1').beginElement();
+                document.getElementById('label1').style.visibility = 'hidden';
+                document.getElementById('OpenEllipse2XState1').beginElement();
+                document.getElementById('OpenEllipse2YState1').beginElement();
+                document.getElementById('OpenEllipse2RXState1').beginElement();
+                document.getElementById('OpenEllipse2RYState1').beginElement();
+                document.getElementById('label2').style.visibility = 'hidden';
+                document.getElementById('OpenEllipse3XState1').beginElement();
+                document.getElementById('OpenEllipse3YState1').beginElement();
+                document.getElementById('OpenEllipse3RXState1').beginElement();
+                document.getElementById('OpenEllipse3RYState1').beginElement();
+                document.getElementById('label3').style.visibility = 'hidden';
+                document.getElementById('OpenEllipse5XState1').beginElement();
+                document.getElementById('OpenEllipse5YState1').beginElement();
+                document.getElementById('OpenEllipse5RXState1').beginElement();
+                document.getElementById('OpenEllipse5RYState1').beginElement();
+                document.getElementById('label5').style.visibility = 'hidden';
+                document.getElementById('OpenEllipse6YState1').beginElement();
+                document.getElementById('OpenEllipse6RXState1').beginElement();
+                document.getElementById('OpenEllipse6RYState1').beginElement();
+                document.getElementById('label6').style.visibility = 'hidden';
+
+                state4 = true;
+            } else if(state1==false && state2==false && state3==false && state5==false && state6==false){
+                document.getElementById('CloseEllipse4X').beginElement();
+                document.getElementById('CloseEllipse4Y').beginElement();
+                document.getElementById('CloseEllipse4RX').beginElement();
+                document.getElementById('CloseEllipse4RY').beginElement();
+                document.getElementById('CloseText4X').beginElement();
+                document.getElementById('CloseText4Y').beginElement();
+
+                document.getElementById('CloseEllipse1XState1').beginElement();
+                document.getElementById('CloseEllipse1YState1').beginElement();
+                document.getElementById('CloseEllipse1RXState1').beginElement();
+                document.getElementById('CloseEllipse1RYState1').beginElement();
+                document.getElementById('label1').style.visibility = 'visible';
+                document.getElementById('CloseEllipse2XState1').beginElement();
+                document.getElementById('CloseEllipse2YState1').beginElement();
+                document.getElementById('CloseEllipse2RXState1').beginElement();
+                document.getElementById('CloseEllipse2RYState1').beginElement();
+                document.getElementById('label2').style.visibility = 'visible';
+                document.getElementById('CloseEllipse3XState1').beginElement();
+                document.getElementById('CloseEllipse3YState1').beginElement();
+                document.getElementById('CloseEllipse3RXState1').beginElement();
+                document.getElementById('CloseEllipse3RYState1').beginElement();
+                document.getElementById('label3').style.visibility = 'visible';
+                document.getElementById('CloseEllipse5XState1').beginElement();
+                document.getElementById('CloseEllipse5YState1').beginElement();
+                document.getElementById('CloseEllipse5RXState1').beginElement();
+                document.getElementById('CloseEllipse5RYState1').beginElement();
+                document.getElementById('label5').style.visibility = 'visible';
+                document.getElementById('CloseEllipse6YState1').beginElement();
+                document.getElementById('CloseEllipse6RXState1').beginElement();
+                document.getElementById('CloseEllipse6RYState1').beginElement();
+                document.getElementById('label6').style.visibility = 'visible';
+
+                state4 = false;
+            }
+
+        }
+
+        function enterState5(){
+            if(state5==false && (state1==false && state2==false && state3==false && state4==false && state6==false)){
+                document.getElementById('OpenEllipse5X').beginElement();
+                document.getElementById('OpenEllipse5RX').beginElement();
+                document.getElementById('OpenEllipse5RY').beginElement();
+                document.getElementById('OpenText5').beginElement();
+
+                document.getElementById('OpenEllipse1XState5').beginElement();
+                document.getElementById('OpenEllipse1YState5').beginElement();
+                document.getElementById('OpenEllipse1RXState5').beginElement();
+                document.getElementById('OpenEllipse1RYState5').beginElement();
+                document.getElementById('label1').style.visibility = 'hidden';
+                document.getElementById('OpenEllipse2XState5').beginElement();
+                document.getElementById('OpenEllipse2YState5').beginElement();
+                document.getElementById('OpenEllipse2RXState5').beginElement();
+                document.getElementById('OpenEllipse2RYState5').beginElement();
+                document.getElementById('label2').style.visibility = 'hidden';
+                document.getElementById('OpenEllipse3XState1').beginElement();
+                document.getElementById('OpenEllipse3YState1').beginElement();
+                document.getElementById('OpenEllipse3RXState1').beginElement();
+                document.getElementById('OpenEllipse3RYState1').beginElement();
+                document.getElementById('label3').style.visibility = 'hidden';
+                document.getElementById('OpenEllipse4XState1').beginElement();
+                document.getElementById('OpenEllipse4YState1').beginElement();
+                document.getElementById('OpenEllipse4RXState1').beginElement();
+                document.getElementById('OpenEllipse4RYState1').beginElement();
+                document.getElementById('label4').style.visibility = 'hidden';
+                document.getElementById('OpenEllipse6YState1').beginElement();
+                document.getElementById('OpenEllipse6RXState1').beginElement();
+                document.getElementById('OpenEllipse6RYState1').beginElement();
+                document.getElementById('label6').style.visibility = 'hidden';
+
+                //Menu stuff
+                document.getElementById('OpenRect1H').beginElement();
+                document.getElementById('OpenRect1W').beginElement();
+
+                state5 = true;
+            } else if(state1==false && state2==false && state3==false && state4==false && state6==false) {
+                document.getElementById('CloseEllipse5X').beginElement();
+                document.getElementById('CloseEllipse5RX').beginElement();
+                document.getElementById('CloseEllipse5RY').beginElement();
+                document.getElementById('CloseText5').beginElement();
+
+                document.getElementById('CloseEllipse1XState5').beginElement();
+                document.getElementById('CloseEllipse1YState5').beginElement();
+                document.getElementById('CloseEllipse1RXState5').beginElement();
+                document.getElementById('CloseEllipse1RYState5').beginElement();
+                document.getElementById('label1').style.visibility = 'visible';
+                document.getElementById('CloseEllipse2XState5').beginElement();
+                document.getElementById('CloseEllipse2YState5').beginElement();
+                document.getElementById('CloseEllipse2RXState5').beginElement();
+                document.getElementById('CloseEllipse2RYState5').beginElement();
+                document.getElementById('label2').style.visibility = 'visible';
+                document.getElementById('CloseEllipse3XState1').beginElement();
+                document.getElementById('CloseEllipse3YState1').beginElement();
+                document.getElementById('CloseEllipse3RXState1').beginElement();
+                document.getElementById('CloseEllipse3RYState1').beginElement();
+                document.getElementById('label3').style.visibility = 'visible';
+                document.getElementById('CloseEllipse4XState1').beginElement();
+                document.getElementById('CloseEllipse4YState1').beginElement();
+                document.getElementById('CloseEllipse4RXState1').beginElement();
+                document.getElementById('CloseEllipse4RYState1').beginElement();
+                document.getElementById('label4').style.visibility = 'visible';
+                document.getElementById('CloseEllipse6YState1').beginElement();
+                document.getElementById('CloseEllipse6RXState1').beginElement();
+                document.getElementById('CloseEllipse6RYState1').beginElement();
+                document.getElementById('label6').style.visibility = 'visible';
+
+                //Menu stuff
+                document.getElementById('CloseRect1H').beginElement();
+                document.getElementById('CloseRect1W').beginElement();
+
+                state5 = false;
             }
         }
 
         function enterState6(){
 
-            if(state6==false){
+            if(state6==false && (state1==false && state2==false && state3==false && state4==false && state5==false)){
                 document.getElementById('OpenEllipse6Y').beginElement();
                 document.getElementById('OpenEllipse6RY').beginElement();
                 document.getElementById('OpenEllipse6RX').beginElement();
                 document.getElementById('label6').style.visibility = 'hidden';
                 state6 = true;
-            } else {
+            } else if(state1==false && state2==false && state3==false && state4==false && state5==false) {
                 document.getElementById('CloseEllipse6Y').beginElement();
                 document.getElementById('CloseEllipse6RY').beginElement();
                 document.getElementById('CloseEllipse6RX').beginElement();
