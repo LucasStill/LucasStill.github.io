@@ -53,16 +53,91 @@
             <animate id="CloseRect1W" begin="indefinite" attributeName="width" from="60%" to="0%" dur="0.5s" fill="freeze"></animate>
         </rect>
 
+        <rect id="rect2" x="25%" y="10%" width="0" height="0%" fill="white">
+            <animate id="OpenRect2H" begin="indefinite" attributeName="height" from="0%" to="80%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseRect2H" begin="indefinite" attributeName="height" from="80%" to="0%" dur="0.5s" fill="freeze"></animate>
+            <animate id="OpenRect2W" begin="indefinite" attributeName="width" from="0%" to="50%" dur="0.5s" fill="freeze"></animate>
+            <animate id="CloseRect2W" begin="indefinite" attributeName="width" from="50%" to="0%" dur="0.5s" fill="freeze"></animate>
+        </rect>
+
         <text id="news" x="25%" y="15%" fill="black" visibility="hidden" textLength="130m" lengthAdjust="spacing">
-            <tspan dy="1em" font-weight="bold" textLength="10em" font-size="14">Breaking!</tspan>
+            <tspan dy="1em" font-weight="bold" textLength="8em" font-size="14">Breaking!</tspan>
             <tspan dy="2.4em" x="25%">Scriptkiddies managed to exit VIM! User said </tspan>
             <tspan font-style="italic">"I'm stuck and cannot escape."</tspan>
             <tspan> Another fallen to the terminals.</tspan>
             <tspan dy="1.2em" x="25%">Ensues a terrible battle between users about which command is the best to use to exit the famous editor.</tspan>
 
+            <tspan dy="1.2em" x="25%">The 1780 Epsom Derby was the inaugural running of The Derby - the horse race which would become the "greatest </tspan>
+            <tspan dy="1.2em" x="25%"> turf event in the world" and after which more than 140 other horse races, including the famous Kentucky </tspan>
+            <tspan dy="1.2em" x="25%">Derby, are named. It took place on 4 May 1780 on Epsom Downs in Surrey, England, and was won by Diomed, </tspan>
+            <tspan dy="1.2em" x="25%">owned by Sir Charles Bunbury and ridden by Sam Arnull.</tspan>
 
-
+            <tspan dy="2.4em" font-weight="bold" textLength="25em" font-size="14" x="25%">Did you know </tspan>
+            <tspan> that seeds from Asia allowed Dorothy Renton to create "the finest two acres of private garden"</tspan>
+            <tspan dy="1.2em" x="25%">in Scotland? They bought two acres of land known as Barnhill Orchard, which was </tspan>
+            <tspan dy="1.2em" x="25%">the land for their new house. The land was in walking distance of the centre </tspan>
+            <tspan dy="1.2em" x="25%">of Perth on the lower banks of Kinnoull Hill. The new arts and crafts house </tspan>
+            <tspan dy="1.2em" x="25%">was called Branklyn and in the former orchard they laid out their gardens. </tspan>
+            <tspan dy="1.2em" x="25%">The gardens were remarkable because they used unusual Asian seeds which were </tspan>
+            <tspan dy="1.2em" x="25%">native to Tibet, Bhutan and China. The seeds were sourced from Lhasa-based</tspan>
+            <tspan dy="1.2em" x="25%">naturalist Frank Ludlow, the Scottish botanist George Forrest, English explorer </tspan>
+            <tspan dy="1.2em" x="25%">Frank Kingdon-Ward, and other plant collectors. Her husband took the lead on </tspan>
+            <tspan dy="1.2em" x="25%">the design and layout, but it was Dorothy who was the skilled botanist and horticulturist.</tspan>
         </text>
+
+        <text id="mission" x="25%" y="15%" fill="black" visibility="hidden" textLength="130m" lengthAdjust="spacing">
+            <tspan dy="1em" font-weight="bold" textLength="8em" font-size="14">Our goal with WebAI is to:</tspan>
+            <tspan dy="2.4em" x="25%">Significantly improve the KPI of a website through AI techniques and data-driven approaches</tspan>
+            <tspan dy="1.2em" x="25%">- Investigate and classify page design of AIs from user data</tspan>
+            <tspan dy="1.2em" x="25%">- Provide new insights in user groups from a landing page usage</tspan>
+            <tspan dy="1.2em" x="25%">- Explore what types of website routines can improve a webpage KPI from</tspan>
+            <tspan dy="3em" x="25%">A possible research question may be: What are the causes and effects of AI generated landing pages</tspan>
+            <tspan dy="1.2em" x="25%">in improving a general key performance indicator (KPI)?</tspan>
+        </text>
+
+        <text id="offer" x="25%" y="15%" fill="black" visibility="hidden" textLength="130m" lengthAdjust="spacing">
+            <tspan dy="2.4em" x="30%">We offer constant and dedicated services and will be at your side</tspan>
+            <tspan dy="1.2em" x="30%">anytime you need it.</tspan>
+            <tspan dy="2.4em" x="30%">Contact us for more details</tspan>
+        </text>
+
+        <text id="contact" x="25%" y="15%" fill="black" visibility="hidden" textLength="130m" lengthAdjust="spacing">
+            <tspan dy="2.4em" x="30%">You can contact us on social media, phone, email...</tspan>
+            <tspan dy="2.4em" x="30%">Phone: +123 456 789</tspan>
+            <tspan dy="2.4em" x="30%">Email: notanindianscammer@microsoft-support.go</tspan>
+        </text>
+
+
+
+
+
+
+        <rect id="background_experiment" visibility="hidden" x="10%" y="5%" width="80%" height="90%"></rect>
+
+        <text visibility="hidden" id="experiment_legend_1"  x="45%" y="60%" fill="rgb(0,255,0)" font-family="Lora" font-size="15" alignment-baseline="middle" text-anchor="middle">Which of figure 1 or 2 looks the closest to figure 3?</text>
+        <text visibility="hidden" id="experiment_legend_figure_3" x="320"  y="300" fill="rgb(0,255,0)" font-family="Lora" font-size="17">Figure 1</text>
+        <polygon id="triangleTest1" onclick="enterStateExitExp()" visibility="hidden" points="320,140 290,180 350,180" fill="rgb(0,255,0)"></polygon>
+        <polygon id="triangleTest2" onclick="enterStateExitExp()" visibility="hidden" points="390,140 360,180 420,180" fill="rgb(0,255,0)"></polygon>
+        <polygon id="triangleTest3" onclick="enterStateExitExp()" visibility="hidden" points="320,220 290,260 350,260" fill="rgb(0,255,0)"></polygon>
+        <polygon id="triangleTest4" onclick="enterStateExitExp()" visibility="hidden" points="390,220 360,260 420,260" fill="rgb(0,255,0)"></polygon>
+
+        <text visibility="hidden" id="experiment_legend_figure_1" x="880" y="600" fill="rgb(0,255,0)" font-family="Lora" font-size="15">Figure 3</text>
+        <rect id="rectTest1" x="700" y="500" visibility="hidden" width="60" height="60" fill="rgb(0,255,0)"></rect>
+        <rect id="rectTest2" x="780" y="580" visibility="hidden" width="60" height="60" fill="rgb(0,255,0)"></rect>
+        <rect id="rectTest3" x="700" y="580" visibility="hidden" width="60" height="60" fill="rgb(0,255,0)"></rect>
+        <rect id="rectTest4" x="780" y="500" visibility="hidden" width="60" height="60" fill="rgb(0,255,0)"></rect>
+
+        <text visibility="hidden" id="experiment_legend_figure_2" x="1040" y="310" fill="rgb(0,255,0)" font-family="Lora" font-size="17">Figure 2</text>
+
+        <rect id="rectTest21" onclick="enterStateExitExp()" x="1040" y="140"  visibility="hidden" width="60" height="60" fill="rgb(0,255,0)"></rect>
+        <rect id="rectTest22" onclick="enterStateExitExp()" x="1080" y="220" visibility="hidden" width="60" height="60" fill="rgb(0,255,0)"></rect>
+        <rect id="rectTest23" onclick="enterStateExitExp()" x="1000" y="220" visibility="hidden" width="60" height="60" fill="rgb(0,255,0)"></rect>
+
+
+
+
+
+
 
 
         <ellipse id="ellipse1" onclick="enterState1()" cx="50%" cy="50%" rx="7%" ry="10%" fill="black" visibility="visible">
@@ -226,6 +301,16 @@
         </ellipse>
         <text id="label6" x="50%" y="90%" fill="white" visibility="visible" font-size="16" alignment-baseline="middle" text-anchor="middle">Who are We</text>
 
+        <text id="whoarewe" x="25%" y="30%" fill="white" visibility="hidden" font-size="16" textLength="130m" lengthAdjust="spacing">
+            <tspan dy="1.2em" x="50%" alignment-baseline="middle" text-anchor="middle">WebAI defines a website augmented through artificial intelligence (AI)</tspan>
+            <tspan dy="1.2em" x="50%" alignment-baseline="middle" text-anchor="middle">having the goal to create a landing page experience that provides a better </tspan>
+            <tspan dy="1.2em" x="50%" alignment-baseline="middle" text-anchor="middle">ser experience. Human computer interaction (HCI) is the research field </tspan>
+            <tspan dy="1.2em" x="50%" alignment-baseline="middle" text-anchor="middle">where psychology plays a critical role. The optimizable aspects of a webpage lay</tspan>
+            <tspan dy="1.2em" x="50%" alignment-baseline="middle" text-anchor="middle">in the design, movements, text and dedicated user response.</tspan>
+            <tspan dy="2.4em" x="50%" alignment-baseline="middle" text-anchor="middle">The key performance indicator (KPI)</tspan>
+            <tspan dy="1.2em" x="50%" alignment-baseline="middle" text-anchor="middle">is a general manner to measure the effectiveness and quality of a website.</tspan>
+            <tspan dy="1.2em" x="50%" alignment-baseline="middle" text-anchor="middle">It is the combination of the aforementioned optimizable aspects.</tspan>
+        </text>
 
     </svg>
 
@@ -239,6 +324,28 @@
         var state4 = false;
         var state5 = false;
         var state6 = false;
+
+        function enterStateExitExp(){
+                document.getElementById('background_experiment').style.visibility = 'hidden';
+                document.getElementById('triangleTest1').style.visibility = 'hidden';
+                document.getElementById('triangleTest2').style.visibility = 'hidden';
+                document.getElementById('triangleTest3').style.visibility = 'hidden';
+                document.getElementById('triangleTest4').style.visibility = 'hidden';
+                document.getElementById('rectTest1').style.visibility = 'hidden';
+                document.getElementById('rectTest2').style.visibility = 'hidden';
+                document.getElementById('rectTest3').style.visibility = 'hidden';
+                document.getElementById('rectTest4').style.visibility = 'hidden';
+                document.getElementById('rectTest21').style.visibility = 'hidden';
+                document.getElementById('rectTest22').style.visibility = 'hidden';
+                document.getElementById('rectTest23').style.visibility = 'hidden';
+                document.getElementById('experiment_legend_1').style.visibility = 'hidden';
+                document.getElementById('experiment_legend_figure_1').style.visibility = 'hidden';
+                document.getElementById('experiment_legend_figure_2').style.visibility = 'hidden';
+			    document.getElementById('experiment_legend_figure_3').style.visibility = 'hidden';
+			    document.getElementById('label4').style.visibility = 'visible';
+
+			    enterState4();
+        }
 
         function enterState1(){
 
@@ -439,6 +546,10 @@
                 document.getElementById('OpenEllipse6RYState1').beginElement();
                 document.getElementById('label6').style.visibility = 'hidden';
 
+                document.getElementById('OpenRect2H').beginElement();
+                document.getElementById('OpenRect2W').beginElement();
+                document.getElementById('offer').style.visibility = 'visible';
+
                 state3 = true;
             } else if(state1==false && state2==false && state4==false && state5==false && state6==false){
                 document.getElementById('CloseEllipse3X').beginElement();
@@ -472,6 +583,10 @@
                 document.getElementById('CloseEllipse6RXState1').beginElement();
                 document.getElementById('CloseEllipse6RYState1').beginElement();
                 document.getElementById('label6').style.visibility = 'visible';
+
+                document.getElementById('CloseRect2H').beginElement();
+                document.getElementById('CloseRect2W').beginElement();
+                document.getElementById('offer').style.visibility = 'hidden';
 
                 state3 = false;
             }
@@ -513,6 +628,27 @@
                 document.getElementById('OpenEllipse6RYState1').beginElement();
                 document.getElementById('label6').style.visibility = 'hidden';
 
+                document.getElementById('OpenRect2H').beginElement();
+                document.getElementById('OpenRect2W').beginElement();
+
+                document.getElementById('label4').style.visibility = 'hidden';
+                document.getElementById('background_experiment').style.visibility = 'visible';
+                document.getElementById('triangleTest1').style.visibility = 'visible';
+                document.getElementById('triangleTest2').style.visibility = 'visible';
+                document.getElementById('triangleTest3').style.visibility = 'visible';
+                document.getElementById('triangleTest4').style.visibility = 'visible';
+                document.getElementById('rectTest1').style.visibility = 'visible';
+                document.getElementById('rectTest2').style.visibility = 'visible';
+                document.getElementById('rectTest3').style.visibility = 'visible';
+                document.getElementById('rectTest4').style.visibility = 'visible';
+                document.getElementById('rectTest21').style.visibility = 'visible';
+                document.getElementById('rectTest22').style.visibility = 'visible';
+                document.getElementById('rectTest23').style.visibility = 'visible';
+                document.getElementById('experiment_legend_1').style.visibility = 'visible';
+                document.getElementById('experiment_legend_figure_1').style.visibility = 'visible';
+                document.getElementById('experiment_legend_figure_2').style.visibility = 'visible';
+			    document.getElementById('experiment_legend_figure_3').style.visibility = 'visible';
+
                 state4 = true;
             } else if(state1==false && state2==false && state3==false && state5==false && state6==false){
                 document.getElementById('CloseEllipse4X').beginElement();
@@ -546,6 +682,9 @@
                 document.getElementById('CloseEllipse6RXState1').beginElement();
                 document.getElementById('CloseEllipse6RYState1').beginElement();
                 document.getElementById('label6').style.visibility = 'visible';
+
+                document.getElementById('CloseRect2H').beginElement();
+                document.getElementById('CloseRect2W').beginElement();
 
                 state4 = false;
             }
@@ -587,6 +726,7 @@
                 //Menu stuff
                 document.getElementById('OpenRect1H').beginElement();
                 document.getElementById('OpenRect1W').beginElement();
+                document.getElementById('mission').style.visibility = 'visible';
 
                 state5 = true;
             } else if(state1==false && state2==false && state3==false && state4==false && state6==false) {
@@ -623,6 +763,7 @@
                 //Menu stuff
                 document.getElementById('CloseRect1H').beginElement();
                 document.getElementById('CloseRect1W').beginElement();
+                document.getElementById('mission').style.visibility = 'hidden';
 
                 state5 = false;
             }
@@ -635,12 +776,18 @@
                 document.getElementById('OpenEllipse6RY').beginElement();
                 document.getElementById('OpenEllipse6RX').beginElement();
                 document.getElementById('label6').style.visibility = 'hidden';
+
+                document.getElementById('whoarewe').style.visibility = 'visible';
+
                 state6 = true;
             } else if(state1==false && state2==false && state3==false && state4==false && state5==false) {
                 document.getElementById('CloseEllipse6Y').beginElement();
                 document.getElementById('CloseEllipse6RY').beginElement();
                 document.getElementById('CloseEllipse6RX').beginElement();
                 document.getElementById('label6').style.visibility = 'visible';
+
+                document.getElementById('whoarewe').style.visibility = 'hidden';
+
                 state6 = false;
             }
         }
